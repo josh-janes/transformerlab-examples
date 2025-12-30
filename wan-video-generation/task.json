@@ -1,0 +1,21 @@
+{
+  "title": "Wan2.2 Video Generation (TransformerLab Explainer)",
+  "name": "wan2.2-video-transformerlab",
+  "command": "cd ~/wan2.2-video && python generate_video.py",
+  "cpus": "8",
+  "memory": "64",
+  "accelerators": "RTX4090:1",
+  "setup": "uv pip install git+https://github.com/Wan-Video/Wan2.2.git && pip install -r Wan2.2/requirements.txt && pip install huggingface_hub transformerlab",
+  "env_vars": {
+    "HF_TOKEN": "ENTER_YOUR_HF_TOKEN",
+    "MODEL_NAME": "Wan-AI/Wan2.2-T2V-A14B",
+    "WAN_REPO_DIR": "./Wan2.2",
+    "MODEL_DIR": "./Wan2.2-T2V-A14B",
+    "PROMPT": "A short 5-second cinematic explainer video presenting the benefits of Transformer Lab: clean reproducible ML infra, simple artifact tracking, automatic experiment provenance, collaboration-ready tasks, and easy model orchestration. Friendly narrator voice, on-screen minimal motion graphics, and clear bullets.",
+    "SIZE": "640*480",
+    "OFFLOAD": "True",
+    "OUTPUT_DIR": "./artifacts",
+    "SEED": "42"
+  },
+  "description": "Generates a short explainer video (Wan2.2-T2V-A14B) describing the benefits of Transformer Lab and stores the resulting video(s) in ./artifacts. For higher resolution (720P) or faster results, follow Wan2.2's multi-GPU / offload guidance in their README."
+}
